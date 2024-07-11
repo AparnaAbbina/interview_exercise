@@ -165,3 +165,45 @@ url: /api/v1/users/599ebd736a1d100004aeb744
 "profile_photo": null
 }
 ```
+
+
+## "Documentation on how I worked to fix the issues and changes I made."
+
+After running supporting services and installing all the necessary tools and dependencies for the project, I took time to understand the Package.json file. This helped me better understand the dependencies such as Nest, Jest, Docker, GraphQL and Rest interfaces for our chat API, along with their respective advantages.
+
+After trying to run the code, I encountered errors. Upon researching the errors, I realized that I was not using the correct version of Node for the project. I had been using Node version 20.15.1, so I attempted to lower my node version to 16.10.0.
+
+
+Then I started with the interview exercise and checked for errors to find out why the service is failing to start.
+
+Part 1 : 
+
+ * Fixed the issue preventing the service from starting by updating TypeScript to a compatible version.
+ * Resolved module import errors by ensuring the correct versions of dependencies were installed.
+ * Verified that the service starts successfully.
+
+Part 2 : 
+
+ * Added and corrected unit tests for various modules.
+ * Ensured all tests pass without errors.
+ * Implemented missing functionalities to satisfy the test cases.
+
+Part 3 : 
+
+My understanding and plan involve allowing the sender to add or update tags on a single message and enabling other users to find messages based on these tags.
+
+Here's a summary of the plan I followed to implement the solution for allowing message tagging:
+
+ * I updated the message schema to include a "tags" field by adding a tags field to the ChatMessageModel in message.model.ts.
+ * Implemented methods in message.data.ts for adding, updating and finding messages by tags(addTags, updateTags, findMessagesByTags).
+ * I updated MessageLogic in message.logic.ts to include methods for adding, updating, and querying tags (addTagsToMessage, updateMessageTags,findMessagesByTags).
+
+## Future Improvements
+
+ * Extend GraphQL resolvers in message.resolver.ts to include mutations for adding and updating tags on messages
+ * Integrating test cases for adding, updating and finding messages by tags functionality
+ * Improving the search functionality to support advanced filtering options
+ * Enhance the user interface to provide better user experience for tagging and searching messages.
+
+
+
